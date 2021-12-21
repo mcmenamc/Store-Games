@@ -1,13 +1,17 @@
 <template>
   <v-container>
-    hola mundo
+    hola {{name}}
   </v-container>
 </template>
 
 <script>
   export default {
     name: 'HelloWorld',
-    
+    data(){
+      return {
+        name: "arturo" 
+      }
+    }
 
     
   }
