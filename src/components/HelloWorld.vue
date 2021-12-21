@@ -9,7 +9,7 @@
     name: 'HelloWorld',
     data(){
       return {
-        name: "arturo" 
+        name: "mena" 
       }
     }
 
