@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
+import '@fortawesome/fontawesome-free/css/all.css' //import fontawesome free
 
 Vue.use(Vuetify);
 
@@ -18,7 +19,7 @@ export default new Vuetify({
         info: '#2196F3',
         success: '#4CAF50',
         warning: '#FFC107'
-      }
+      },
     },
   },
   icons: {
