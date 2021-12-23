@@ -5,9 +5,11 @@
     <v-carousel
       continuous
       dark
-      height="92vh"
+      height="89vh"
       hide-delimiters
       show-arrows-on-hover
+      
+   
     >
       <v-carousel-item
         v-for="(item, i) in items"
@@ -20,7 +22,6 @@
     </v-carousel>
      
 
-    <HelloWorld msg="Welcome to Your Vue.js App" />
 
     <!-- <v-responsive class="overflow-y-auto primary" max-height="150">
       <v-responsive class="text-center pa-2">
@@ -48,7 +49,6 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
   name: "Home",
@@ -74,10 +74,10 @@ export default {
     };
   },
   components: {
-    HelloWorld,
   },
   
 };
 </script>
 <style scoped>
+
 </style>

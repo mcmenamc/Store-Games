@@ -65,11 +65,23 @@
 
     <v-app-bar app color="primary" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title
-        class="text-sm-body-2 text-md-body-1 text-lg-h6 text-xl-h4"
-      >
-        Store Games
-      </v-toolbar-title>
+
+      <div class="d-flex align-center">
+        <v-img
+          alt="Vuetify Logo"
+          class="shrink mr-2 primary"
+          contain
+          v-bind:src="require('@/assets/images/logo.png')"
+          transition="scale-transition"
+          width="40"
+        />
+
+        <v-toolbar-title
+          class="text-sm-body-2 text-md-body-1 text-lg-h6 text-xl-h4 "
+        >
+          <div class="fontPerma">Store Games</div> 
+        </v-toolbar-title>
+      </div>
 
       <v-spacer></v-spacer>
 
@@ -170,7 +182,7 @@
     </v-app-bar>
 
     <v-main>
-      <v-container >
+      <v-container>
         <router-view></router-view>
       </v-container>
     </v-main>
@@ -300,3 +312,12 @@ export default {
   created() {},
 };
 </script>
+<style >
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+
+
+
+.fontPerma {
+  font-family: 'Permanent Marker', cursive;
+}
+</style>
