@@ -314,8 +314,11 @@ export default {
 </script>
 <style >
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital@1&display=swap');
 
-
+*{
+  font-family: 'Fira Sans', sans-serif;
+}
 
 .fontPerma {
   font-family: 'Permanent Marker', cursive;
