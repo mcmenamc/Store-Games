@@ -1,39 +1,70 @@
 <template>
   <v-app>
-    <v-navigation-drawer v-model="drawer" absolute temporary>
+    <v-navigation-drawer v-model="drawer" app temporary>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title class="text-h6"> Application </v-list-item-title>
-          <!-- <v-list-item-subtitle> subtext </v-list-item-subtitle> -->
+          <v-list-item-title class="text-h6"> Menu </v-list-item-title>
           <v-switch
             class="font-weight-black ml-2"
             v-on:click="darkMode"
             inset
+            color="info"
             :label="`${Mode == 'true' ? `Dark` : `Light`} Mode`"
           ></v-switch>
-          <!-- {{Mode ==   'true' ? 'Dark Mode' : 'Light Mode'}} -->
         </v-list-item-content>
       </v-list-item>
 
       <v-divider></v-divider>
 
-      <v-list dense nav>
-        <v-list-item v-for="item in items" :key="item.title" link>
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
+      <v-list dense class="mt-1">
+        <template>
+          <div v-for="item in links" :key="item.title">
+            <v-list-group
+              :group="'attricons'"
+              v-if="item.links"
+              v-model="item.active"
+              :prepend-icon="item.icon"
+              no-icon
+              link
+              color="hover"
+            >
+              <template v-slot:activator>
+                <v-list-item-content>
+                  <v-list-item-title v-text="item.title"></v-list-item-title>
+                </v-list-item-content>
+              </template>
+              <v-list-item
+                v-for="subItem in item.links"
+                :key="subItem.title"
+                :to="subItem.to"
+              >
+                <v-list-item-icon class="ml-5">
+                  <v-icon right size="18" v-text="subItem.icon"></v-icon>
+                </v-list-item-icon>
 
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+                <v-list-item-content>
+                  <v-list-item-title v-text="subItem.title"></v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list-group>
+
+            <v-list-item v-else :to="item.to" link>
+              <v-list-item-icon>
+                <v-icon v-text="item.icon"></v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title v-text="item.title"></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </div>
+        </template>
       </v-list>
     </v-navigation-drawer>
 
     <!---Header -->
+
     <v-app-bar app color="primary" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-
       <v-toolbar-title
         class="text-sm-body-2 text-md-body-1 text-lg-h6 text-xl-h4"
       >
@@ -79,7 +110,7 @@
         class="mr-1"
       >
         <template v-slot:activator="{ on, attrs }">
-          <v-badge  
+          <v-badge
             :content="CountNotification"
             :value="CountNotification"
             color="green"
@@ -89,18 +120,12 @@
           </v-badge>
         </template>
 
-        <v-card
-          class="mx-auto"
-          min-width="275px"
-          max-width="415px" 
-          
-          
-        >
-          <v-card-title   class=" text-sm-body-2 text-md-body-1 text-lg-h6"
+        <v-card class="mx-auto" max-width="415px">
+          <v-card-title class="text-sm-body-2 text-md-body-1 text-lg-h6"
             >{{ CountNotification }}&nbsp; Notificaciones
           </v-card-title>
-          
-          <v-responsive class="overflow-y-auto"  max-height="400">
+
+          <v-responsive class="overflow-y-auto" max-height="400">
             <v-responsive class="pa-2">
               <v-alert
                 v-if="CountNotification == 0"
@@ -109,7 +134,6 @@
                 elevation="5"
                 icon="fas fa-book-open"
                 class="mb-4 text-sm-body-2 text-md-body-1 text-lg-h6"
-
                 >Ningún Mensaje
               </v-alert>
 
@@ -144,19 +168,32 @@
         </v-card>
       </v-menu>
     </v-app-bar>
-    <v-main>
-      <v-container fluid>
-        <!-- Se modifica las vistas   -->
-        <!-- {{ Notification }} -->
 
+    <v-main>
+      <v-container >
         <router-view></router-view>
       </v-container>
     </v-main>
-    <v-footer color="light-blue lighten-5">
-      <!-- fotter -->
-      <v-col class="text-center" cols="12">
-        {{ new Date().getFullYear() }} — <strong>Store Games</strong>
-      </v-col>
+    <v-footer dark padless>
+      <v-card class="flex" flat tile>
+        <v-card-title class="teal">
+          <strong class="subheading">
+            Siguenos en nuetras Redes Sociales
+          </strong>
+
+          <v-spacer></v-spacer>
+
+          <v-btn v-for="icon in icons" :key="icon" class="mx-4" dark icon>
+            <v-icon size="24px">
+              {{ icon }}
+            </v-icon>
+          </v-btn>
+        </v-card-title>
+
+        <v-card-text class="py-2 white--text text-center">
+          {{ new Date().getFullYear() }} — <strong>Store Games</strong>
+        </v-card-text>
+      </v-card>
     </v-footer>
   </v-app>
 </template>
@@ -171,10 +208,55 @@ export default {
     CountNotification: 0,
     Mode: null,
     drawer: false,
-    items: [
-      { title: "Dashboard", icon: "mdi-view-dashboard" },
-      { title: "Photos", icon: "mdi-image" },
-      { title: "About", icon: "mdi-help-box" },
+    links: [
+      {
+        icon: "fas fa-home",
+        title: "Home",
+        to: "/",
+      },
+      {
+        icon: "fas fa-user",
+        title: "Nosotros",
+        to: "/nosotros",
+      },
+      {
+        icon: "fas fa-gamepad",
+        title: "Plataforma",
+        links: [
+          {
+            title: "PC",
+            icon: "fas fa-desktop",
+            to: "/temporada/primavera",
+          },
+          {
+            title: "Xbox",
+            icon: "fab fa-xbox",
+            to: "/temporada/verano",
+          },
+          {
+            title: "PlayStation",
+            icon: "fab fa-playstation",
+            to: "/temporada/otoño",
+          },
+          {
+            title: "Nintendo",
+            icon: "fas fa-vr-cardboard",
+            to: "/temporada/invierno",
+          },
+        ],
+      },
+
+      {
+        icon: "fa fa-question",
+        title: "Ayuda",
+        to: "/ubicacion",
+      },
+    ],
+    icons: [
+      "fab fa-facebook-f",
+      "fab fa-twitter",
+      "fab fa-instagram",
+      "fab fa-youtube",
     ],
   }),
   computed: {

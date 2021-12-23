@@ -1,16 +1,24 @@
 <template>
-  <div class="home">
+  <div>
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-    <v-carousel show-arrows-on-hover>
+
+    <v-carousel
+      continuous
+      dark
+      height="92vh"
+      hide-delimiters
+      show-arrows-on-hover
+    >
       <v-carousel-item
         v-for="(item, i) in items"
         :key="i"
+        eager
         :src="item.src"
         reverse-transition="fade-transition"
         transition="fade-transition"
-        
       ></v-carousel-item>
     </v-carousel>
+     
 
     <HelloWorld msg="Welcome to Your Vue.js App" />
 
@@ -34,6 +42,7 @@
         veniam ipsam doloremque! Quisquam porro error quam ipsa necessitatibus.
       </v-responsive>
     </v-responsive> -->
+    
   </div>
 </template>
 
@@ -50,13 +59,16 @@ export default {
           src: "https://www.xtrafondos.com/wallpapers/call-of-duty-warzone-2021-7336.jpg",
         },
         {
-          src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg",
+          src: "https://www.xtrafondos.com/wallpapers/fortnite-jonesy-3753.jpg",
         },
         {
-          src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg",
+          src: "https://www.xtrafondos.com/wallpapers/call-of-duty-mobile-4007.jpg",
         },
         {
-          src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg",
+          src: "https://www.xtrafondos.com/wallpapers/tom-clancy-s-rainbow-six-siege-crimson-heist-7401.jpg",
+        },
+        {
+          src: "https://fondosmil.com/fondo/40159.jpg",
         },
       ],
     };
@@ -64,6 +76,7 @@ export default {
   components: {
     HelloWorld,
   },
+  
 };
 </script>
 <style scoped>
