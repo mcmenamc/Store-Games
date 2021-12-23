@@ -92,12 +92,12 @@
       </v-list>
      
        <template v-slot:append >
-        <div class="d-flex justify-center pa-3">
-           <v-btn   color="info" to="/sing-in">
+        <div  class="d-flex justify-center pa-3">
+           <v-btn  color="info" to="/sing-in">
             <!-- <v-icon large class="mr-3">
               fas fa-user-circle
             </v-icon> -->
-         <h3  class=" font-family-secular-one">
+         <h3  class="white--text font-family-secular-one">
          Iniciar Sesion
 
          </h3>

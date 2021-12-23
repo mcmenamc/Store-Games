@@ -1,11 +1,11 @@
 <template>
-  <div id="center">
+  <div v-if="!$vuetify.breakpoint.mdAndDown">
     <v-card class="d-flex align-center justify-center" flat height="90vh" tile>
         <div class="cuatro "></div>
         <div class="circulo "></div>
         <div class="cuatro "></div>
     </v-card>
-    <div
+    <div 
       class="
         text-error text-sm-body-2 text-md-body-1 text-lg-h6 text-xl-h4
         d-flex
@@ -46,6 +46,7 @@ export default {
 <style  scoped>
 
 @media (min-width: 1264px) {
+  
   .cuatro {
     width: 8vh;
     height: 23vh;
