@@ -6,6 +6,9 @@ import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 import router from './router'
 import store from './store'
+import VueAnimXYZ from '@animxyz/vue'
+import '@animxyz/core' // Import css here if you haven't elsewhere
+Vue.use(VueAnimXYZ)
 
 Vue.config.productionTip = false
 

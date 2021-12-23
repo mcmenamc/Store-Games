@@ -1,18 +1,26 @@
 <template>
   <v-app>
     <v-navigation-drawer v-model="drawer" app temporary>
+     
       <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="text-h6"> Menu </v-list-item-title>
-          <v-switch
-            class="font-weight-black ml-2"
-            v-on:click="darkMode"
-            inset
-            color="info"
-            :label="`${Mode == 'true' ? `Dark` : `Light`} Mode`"
-          ></v-switch>
-        </v-list-item-content>
+        <!-- <v-list-item-content> -->
+        <v-list-item-title
+          class="text-sm-body-2 text-md-body-1 text-lg-h6 text-xl-h4"
+        >
+          <div class="fontPerma">MENU</div>
+        </v-list-item-title>
+        <v-divider></v-divider>
+
+        <v-switch
+          class="font-weight-black ml-2"
+          v-on:click="darkMode"
+          inset
+          color="info"
+          :label="`${Mode == 'true' ? `Dark` : `Light`} Mode`"
+        ></v-switch>
+        <!-- </v-list-item-content> -->
       </v-list-item>
+       
 
       <v-divider></v-divider>
 
@@ -26,39 +34,77 @@
               :prepend-icon="item.icon"
               no-icon
               link
-              color="hover"
+              color=""
             >
               <template v-slot:activator>
                 <v-list-item-content>
-                  <v-list-item-title v-text="item.title"></v-list-item-title>
+                  <v-list-item-title class="font-family-secular-one " v-text="item.title"></v-list-item-title>
                 </v-list-item-content>
               </template>
               <v-list-item
                 v-for="subItem in item.links"
                 :key="subItem.title"
                 :to="subItem.to"
+                
               >
-                <v-list-item-icon class="ml-5">
-                  <v-icon right size="18" v-text="subItem.icon"></v-icon>
+              <v-row>
+                <v-col cols="1"></v-col>
+                <v-col cols="3">
+                <v-list-item-icon>
+                  <v-icon right size="18"  v-text="subItem.icon"></v-icon>
                 </v-list-item-icon>
+                </v-col>
+                <v-col cols="7">
 
                 <v-list-item-content>
-                  <v-list-item-title v-text="subItem.title"></v-list-item-title>
+                  <v-list-item-title class="font-family-secular-one"  v-text="subItem.title"></v-list-item-title>
                 </v-list-item-content>
+
+                </v-col>
+
+              </v-row>
+
               </v-list-item>
             </v-list-group>
 
             <v-list-item v-else :to="item.to" link>
-              <v-list-item-icon>
-                <v-icon v-text="item.icon"></v-icon>
+
+              <v-row>
+                <v-col cols="3">
+                  <v-list-item-icon class="d-flex justify-center">
+                <v-icon right class=""  v-text="item.icon"></v-icon>
               </v-list-item-icon>
-              <v-list-item-content>
-                <v-list-item-title v-text="item.title"></v-list-item-title>
+                </v-col>
+                <v-col cols="9">
+                    <v-list-item-content>
+                <v-list-item-title class="font-family-secular-one" v-text="item.title"></v-list-item-title>
               </v-list-item-content>
+                </v-col>
+
+              </v-row>
+
+              
+            
             </v-list-item>
           </div>
         </template>
+        
       </v-list>
+     
+       <template v-slot:append >
+        <div class="d-flex justify-center pa-3">
+           <v-btn   color="info" to="/sing-in">
+            <!-- <v-icon large class="mr-3">
+              fas fa-user-circle
+            </v-icon> -->
+         <h3  class=" font-family-secular-one">
+         Iniciar Sesion
+
+         </h3>
+       </v-btn>
+        </div>
+      </template>
+      
     </v-navigation-drawer>
 
     <!---Header -->
@@ -67,6 +113,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
       <div class="d-flex align-center">
+
         <v-img
           alt="Vuetify Logo"
           class="shrink mr-2 primary"
@@ -74,12 +121,14 @@
           v-bind:src="require('@/assets/images/logo.png')"
           transition="scale-transition"
           width="40"
+          
         />
 
-        <v-toolbar-title
-          class="text-sm-body-2 text-md-body-1 text-lg-h6 text-xl-h4 "
+        <v-toolbar-title 
+          class="text-sm-body-2 text-md-body-1 text-lg-h6 text-xl-h4"
         >
-          <div class="fontPerma">Store Games</div> 
+
+          <div class="fontPerma">Store Games</div>
         </v-toolbar-title>
       </div>
 
@@ -183,7 +232,13 @@
 
     <v-main>
       <v-container>
-        <router-view></router-view>
+        <XyzTransition
+          appear
+          xyz="fade in-left-100% out-right-100%"
+          mode="out-in"
+        >
+          <router-view></router-view>
+        </XyzTransition>
       </v-container>
     </v-main>
     <v-footer dark padless>
@@ -314,13 +369,18 @@ export default {
 </script>
 <style >
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital@1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital@1&family=Secular+One&display=swap");
 
-*{
-  font-family: 'Fira Sans', sans-serif;
+* {
+  font-family: "Fira Sans", sans-serif;
 }
 
 .fontPerma {
-  font-family: 'Permanent Marker', cursive;
+  font-family: "Permanent Marker", cursive;
 }
+.font-family-secular-one {
+    font-family: "Fira Sans", sans-serif;
+    font-family: "Secular One", sans-serif;
+  }
 </style>
