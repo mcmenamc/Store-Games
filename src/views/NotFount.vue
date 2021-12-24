@@ -1,11 +1,11 @@
 <template>
-  <div id="not-found" v-if="!$vuetify.breakpoint.mdAndDown">
+  <div v-if="!$vuetify.breakpoint.mdAndDown">
     <v-card class="d-flex align-center justify-center" flat height="90vh" tile>
-        <div class="cuatro "></div>
-        <div class="circulo "></div>
-        <div class="cuatro "></div>
+      <div class="cuatro"></div>
+      <div class="circulo"></div>
+      <div class="cuatro"></div>
     </v-card>
-    <div 
+    <div
       class="
         text-error text-sm-body-2 text-md-body-1 text-lg-h6 text-xl-h4
         d-flex
@@ -21,32 +21,16 @@
       >
     </div>
 
-
     <XyzTransition xyz="fade-75%">
-  <div class="square" v-if="animate"></div>
-</XyzTransition>
-
-
+      <div class="square" v-if="animate"></div>
+    </XyzTransition>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
 
-    };
-  },
-  mounted() {
-    
-  },
-};
-</script>
 
 <style  scoped>
-
 @media (min-width: 1264px) {
-  
   .cuatro {
     width: 8vh;
     height: 23vh;
@@ -102,13 +86,10 @@ export default {
     position: relative;
     top: -28vh;
   }
-  #not-found{
+  #not-found {
     animation-duration: 3s;
-  animation-name: slidein;
-  animation-iteration-count: infinite;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
   }
- 
-
-  
 }
 </style>
