@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <div id="preloader"></div>
     <v-navigation-drawer v-model="drawer" app temporary>
      
       <v-list-item>
@@ -164,31 +165,32 @@
       </v-menu> -->
 
       <!-- Notificaciones -->
-      <v-menu
+      <v-menu 
         transition="scroll-y-reverse-transition"
         open-on-hover
         offset-x
         class="mr-1"
       >
-        <template v-slot:activator="{ on, attrs }">
+        <template  v-slot:activator="{ on, attrs }">
           <v-badge
             :content="CountNotification"
             :value="CountNotification"
             color="green"
             overlap
+           
           >
             <v-icon size="4.1vh" v-bind="attrs" v-on="on">fas fa-bell </v-icon>
           </v-badge>
         </template>
 
-        <v-card class="mx-auto" max-width="415px">
+        <v-card  class="mx-auto" max-width="415px">
           <v-card-title class="text-sm-body-2 text-md-body-1 text-lg-h6"
             >{{ CountNotification }}&nbsp; Notificaciones
           </v-card-title>
 
-          <v-responsive class="overflow-y-auto" max-height="400">
-            <v-responsive class="pa-2">
-              <v-alert
+          <v-responsive  class="overflow-y-auto" max-height="400">
+            <v-responsive  class="pa-2">
+              <v-alert 
                 v-if="CountNotification == 0"
                 border="top"
                 prominent
@@ -198,7 +200,7 @@
                 >Ningún Mensaje
               </v-alert>
 
-              <v-alert
+              <v-alert 
                 v-for="item in Notification"
                 :key="item.id"
                 border="left"
@@ -267,6 +269,7 @@
 
 <script>
 import { mapState } from "vuex";
+// import NotFountVue from './views/NotFount.vue';
 
 export default {
   name: "App",
@@ -364,10 +367,24 @@ export default {
     // Cuenta las notificaciones que hay actualmente
     this.CountNotification = this.Notification.length;
   },
-  created() {},
+  created() {
+    
+  },
 };
 </script>
 <style >
+#preloader {
+  background: #000 url(assets/images/preloader.gif) no-repeat center center;
+  background-size: 16%;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+
+
+
+
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital@1&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital@1&family=Secular+One&display=swap");
@@ -375,7 +392,18 @@ export default {
 * {
   font-family: "Fira Sans", sans-serif;
 }
+html::-webkit-scrollbar{
+  width: 8px;
+  background: #121212;
 
+}
+html::-webkit-scrollbar-thumb{
+  background-color: rgb(41, 39, 39);
+  border-radius: 10px;
+}
+html::-webkit-scrollbar-thumb:hover{
+  background-color: rgba(105, 105, 105, 0.7);
+}
 .fontPerma {
   font-family: "Permanent Marker", cursive;
 }
@@ -383,4 +411,14 @@ export default {
     font-family: "Fira Sans", sans-serif;
     font-family: "Secular One", sans-serif;
   }
+  div::-webkit-scrollbar {
+     width: 8px;
+  background: #353535;
+  }
+  div::-webkit-scrollbar-thumb{
+  background-color: rgba(133, 133, 133, 0.7);
+  border-radius: 10px;
+}
+
+
 </style>

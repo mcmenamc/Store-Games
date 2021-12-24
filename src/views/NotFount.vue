@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!$vuetify.breakpoint.mdAndDown">
+  <div id="not-found" v-if="!$vuetify.breakpoint.mdAndDown">
     <v-card class="d-flex align-center justify-center" flat height="90vh" tile>
         <div class="cuatro "></div>
         <div class="circulo "></div>
@@ -102,6 +102,13 @@ export default {
     position: relative;
     top: -28vh;
   }
+  #not-found{
+    animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  }
+ 
+
   
 }
 </style>

@@ -8,6 +8,7 @@
       height="89vh"
       hide-delimiters
       show-arrows-on-hover
+        
       
    
     >
@@ -16,6 +17,9 @@
         :key="i"
         eager
         :src="item.src"
+        class="subheading "
+        aspect-ratio="1.4"
+          contain
         reverse-transition="fade-transition"
         transition="fade-transition"
       ></v-carousel-item>
