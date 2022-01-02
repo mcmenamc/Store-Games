@@ -9,6 +9,10 @@ import store from './store'
 import VueAnimXYZ from '@animxyz/vue'
 import '@animxyz/core' // Import css here if you haven't elsewhere
 Vue.use(VueAnimXYZ)
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+
+Vue.use(VueSweetalert2);
 
 Vue.config.productionTip = false
 

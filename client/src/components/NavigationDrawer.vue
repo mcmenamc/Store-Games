@@ -166,8 +166,8 @@
             <v-icon size="4.1vh" v-bind="attrs" v-on="on">fas fa-bell </v-icon>
           </v-badge>
         </template>
-
-        <v-card class="mx-auto" max-width="415px">
+<!-- MAX -->
+        <v-card class="mx-auto" width="415px">
           <v-card-title class="text-sm-body-2 text-md-body-1 text-lg-h6"
             >{{ CountNotification }}&nbsp; Notificaciones
           </v-card-title>

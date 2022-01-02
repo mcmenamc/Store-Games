@@ -3,8 +3,7 @@
     <v-carousel
       dark
       cycle
-      
-      height="91vh"
+      height="90vh"
       
       hide-delimiters
       show-arrows-on-hover
@@ -13,11 +12,10 @@
         v-for="(item, i) in items"
         :key="i"
         eager
-        
+        contain
         :src="item.src"
         class="subheading "
-        reverse-transition="fade-transition"
-        transition="fade-transition"
+       
       ></v-carousel-item>
     </v-carousel>
 
