@@ -1,7 +1,7 @@
 <template>
   <div>
 
-     <v-card
+     <!-- <v-card
       class="mx-auto"
       max-width="400"
       v-for="article in Users"
@@ -33,15 +33,15 @@
         <v-btn color="orange" text> Explore </v-btn>
       </v-card-actions> 
       
-     </v-card> 
+     </v-card>  -->
 
     
   </div>
 </template>
 
 <script>
-import passwordHash from "password-hash";
-import axios from "axios";
+// import passwordHash from "password-hash";
+// import axios from "axios";
 export default {
   name: "Singin",
   data() {
@@ -50,22 +50,22 @@ export default {
     };
   },
   mounted() {
-    let password = passwordHash.generate("menadelarosa1demkoednfueinfeiuefnifejfefefe");
-    console.log(password);
-    console.log(passwordHash.verify('menadelarosa1demkoednfueinfeiuefnifejfefefe', password));
-    console.log(password.length);
+    // let password = passwordHash.generate("menadelarosa1demkoednfueinfeiuefnifejfefefe");
+    // console.log(password);
+    // console.log(passwordHash.verify('menadelarosa1demkoednfueinfeiuefnifejfefefe', password));
+    // console.log(password.length);
 
 
-    const vue = this;
+    // const vue = this;
 
-    axios
-      .get("http://localhost:3000/api/articles")
-      .then((response) => {
-        vue.Users = response.data;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // axios
+    //   .get("http://localhost:3000/api/articles")
+    //   .then((response) => {
+    //     vue.Users = response.data;
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   },
 };
 </script>

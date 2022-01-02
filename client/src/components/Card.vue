@@ -1,6 +1,6 @@
 <template>
-  
-      <v-row dense class="d-flex justify-center mt-5">
+  <div></div>
+      <!-- <v-row dense class="d-flex justify-center mt-5">
           
         <v-col
           v-for="product in products"
@@ -42,24 +42,24 @@
         </v-col>
  
 
-      </v-row>
+      </v-row> -->
     
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 export default {
   name: "Card",
   mounted() {
-    const vue = this;
-    axios
-      .get("http://localhost:3000/api/products")
-      .then((response) => {
-        vue.products = response.data;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // const vue = this;
+    // axios
+    //   .get("http://localhost:3000/api/products")
+    //   .then((response) => {
+    //     vue.products = response.data;
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   },
 
   data() {
