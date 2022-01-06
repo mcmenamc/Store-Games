@@ -15,8 +15,15 @@
         eager
         :src="'carousel/' + item"
         class="subheading"
-        
+        contain
       ></v-carousel-item>
+        <!-- :contain="
+          $vuetify.breakpoint.xs ||
+          $vuetify.breakpoint.sm ||
+          $vuetify.breakpoint.sm
+            ? false
+            : true
+        " -->
     </v-carousel>
      
 

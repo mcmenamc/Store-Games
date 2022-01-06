@@ -19,6 +19,7 @@
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.4)"
               height="250px"
               width="100%"
+              eager
               contain
               @click="showAlert(`${product.idProducts}`)"
             >
