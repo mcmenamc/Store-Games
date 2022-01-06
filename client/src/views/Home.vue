@@ -13,9 +13,9 @@
         v-for="(item, i) in items"
         :key="i"
         eager
-        :contain="$vuetify.breakpoint.xs || $vuetify.breakpoint.sm || $vuetify.breakpoint.sm ? false : true"
         :src="item.src"
         class="subheading "
+        :contain="$vuetify.breakpoint.xs || $vuetify.breakpoint.sm || $vuetify.breakpoint.sm ? false : true"
        
       ></v-carousel-item>
     </v-carousel>

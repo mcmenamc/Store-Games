@@ -1,12 +1,13 @@
 <template>
 <v-container >
 
-      <v-row  class="d-flex justify-center mt-5">
+      <v-row  class="d-flex justify-center mt-5" >
         <v-col
           v-for="product in products"
           :key="product.idProducts"
-          md="3"
+          md="4"
           cols="12"
+          
         >
 
           <v-card class="mx-auto">
