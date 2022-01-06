@@ -3,16 +3,17 @@
     <v-carousel
       dark
       cycle
-      height="90vh"
-      
+      height="100vh"
       hide-delimiters
-      show-arrows-on-hover
+            :show-arrows="false"
+            hide-delimiter-background
+            delimiter-icon="mdi-minus"
     >
       <v-carousel-item
         v-for="(item, i) in items"
         :key="i"
         eager
-        contain
+        :contain="$vuetify.breakpoint.xs || $vuetify.breakpoint.sm || $vuetify.breakpoint.sm ? false : true"
         :src="item.src"
         class="subheading "
        
@@ -56,6 +57,7 @@ export default {
   components: {
     Card,
   },
+  
   
 };
 </script>

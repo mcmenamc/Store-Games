@@ -1,22 +1,23 @@
 <template>
-  <div></div>
-      <!-- <v-row dense class="d-flex justify-center mt-5">
-          
+<v-container >
+
+      <v-row  class="d-flex justify-center mt-5">
         <v-col
           v-for="product in products"
           :key="product.idProducts"
-          :md="3"
+          md="3"
           cols="12"
         >
 
-          <v-card>
+          <v-card class="mx-auto">
 
             
             <v-img
               :src="`data:image/*;base64,${product.image}`"
               class="white--text align-end "
-              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-              height="270px"
+              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.4)"
+              height="250px"
+              width="100%"
               contain
               @click="showAlert(`${product.idProducts}`)"
             >
@@ -42,24 +43,25 @@
         </v-col>
  
 
-      </v-row> -->
+      </v-row>
+</v-container>
     
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 export default {
   name: "Card",
   mounted() {
-    // const vue = this;
-    // axios
-    //   .get("http://localhost:3000/api/products")
-    //   .then((response) => {
-    //     vue.products = response.data;
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    const vue = this;
+    axios
+      .get("http://localhost:3000/api/products")
+      .then((response) => {
+        vue.products = response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 
   data() {

@@ -6,7 +6,7 @@
     <!---Header -->
 
     <v-main>
-      <v-container >
+      <v-container fluid>
         <XyzTransition
           appear
           xyz="fade in-left-100% out-right-100%"
