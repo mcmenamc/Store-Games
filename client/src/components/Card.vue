@@ -1,53 +1,101 @@
 <template>
-<v-container >
+  <v-container>
+    <!-- <v-row class="d-flex justify-center mt-5">
+      <v-col
+        v-for="product in products"
+        :key="product.idProducts"
+        md="4"
+        cols="12"
+      >
+        <v-card class="mx-auto">
+          <v-img
+            :src="`data:image/*;base64,${product.image}`"
+            class="white--text align-end"
+            gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.4)"
+            height="250px"
+            width="100%"
+            eager
+            contain
+            @click="showAlert(`${product.idProducts}`)"
+          >
+            <v-card-title
+              class="text-justify"
+              v-text="product.title"
+            ></v-card-title>
+          </v-img>
 
-      <v-row  class="d-flex justify-center mt-5" >
-        <v-col
-          v-for="product in products"
-          :key="product.idProducts"
-          md="4"
-          cols="12"
-          
+          <v-card-actions>
+            <v-spacer></v-spacer>
+
+            <v-btn icon>
+              <v-icon>fas fa-heart</v-icon>
+            </v-btn>
+
+            <v-btn icon>
+              <v-icon>fas fa-bookmark</v-icon>
+            </v-btn>
+
+            <v-btn icon>
+              <v-icon>fas fa-share</v-icon>
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row> -->
+
+    <v-row class="d-flex justify-center mt-5">
+      <v-col
+        v-for="(product, index) in products"
+        :key="index"
+        cols="12"
+        sm="6"
+        md="4"
+        lg="3"
+        xl="2"
+      >
+        <v-card
+          v-if="index < 15"
+          outlined
+          shaped
+          width="auto"
+          elevation="12"
+          dark
         >
+          <v-img
+            height="250"
+            :src="`data:image/*;base64,${product.image}`"
+          ></v-img>
+          <v-card-title class="font-family-secular-one">
+            {{ product.name.substring(0, 20) }}
+          </v-card-title>
+          <v-card-text>
+            <v-row align="center" class="mx-0">
+              <v-rating
+                :value="4.5"
+                color="amber"
+                dense
+                half-increments
+                readonly
+                size="14"
+              ></v-rating>
 
-          <v-card class="mx-auto">
+              <div class="grey--text ms-4">4.5</div>
+            </v-row>
 
-            
-            <v-img
-              :src="`data:image/*;base64,${product.image}`"
-              class="white--text align-end "
-              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.4)"
-              height="250px"
-              width="100%"
-              eager
-              contain
-              @click="showAlert(`${product.idProducts}`)"
-            >
-            <v-card-title class="text-justify" v-text="product.title"></v-card-title>
-            </v-img>
+            <div class="my-4 text-subtitle-1 d-flex justify-center my-3">
+              <span class="font-family-secular-one">
+                Precio: $ {{ product.priceSale }}</span
+              >
+            </div>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
 
-            <v-card-actions>
-              <v-spacer></v-spacer>
 
-              <v-btn icon>
-                <v-icon>fas fa-heart</v-icon>
-              </v-btn>
 
-              <v-btn icon>
-                <v-icon>fas fa-bookmark</v-icon>
-              </v-btn>
 
-              <v-btn icon>
-                <v-icon>fas fa-share</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
- 
-
-      </v-row>
-</v-container>
-    
+  </v-container>
 </template>
 
 <script>
@@ -57,7 +105,7 @@ export default {
   mounted() {
     const vue = this;
     axios
-      .get("http://3.144.80.85/api/products")
+      .get("http://localhost:3000/api/products")
       .then((response) => {
         vue.products = response.data;
       })
@@ -69,7 +117,6 @@ export default {
   data() {
     return {
       products: [],
-      
     };
   },
   methods: {
@@ -84,14 +131,12 @@ export default {
         showCancelButton: true,
         confirmButtonColor: "#DD6B55",
         confirmButtonText: "Yes, delete it!",
-        closeOnConfirm: false
+        closeOnConfirm: false,
       });
     },
-    
   },
 };
 </script>
 
 <style>
-
 </style>

@@ -3,7 +3,7 @@
     <v-carousel
       dark
       cycle
-      height="100vh"
+      :height="this.$vuetify.breakpoint.xs ?  'auto':'120vh' "
       hide-delimiters
       :show-arrows="false"
       hide-delimiter-background
@@ -17,13 +17,7 @@
         class="subheading"
         contain
       ></v-carousel-item>
-        <!-- :contain="
-          $vuetify.breakpoint.xs ||
-          $vuetify.breakpoint.sm ||
-          $vuetify.breakpoint.sm
-            ? false
-            : true
-        " -->
+        <!-- :contain="vuet$ify.breakpoint.xs || $vuetify.breakpoint.sm || $vuetify.breakpoint.sm ? false: true " -->
     </v-carousel>
      
 
