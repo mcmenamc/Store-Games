@@ -54,32 +54,33 @@
         xl="2"
       >
         <v-card
-          v-if="index < 15"
           outlined
           shaped
           width="auto"
           elevation="12"
-          dark
         >
           <v-img
             height="250"
+             @click="showAlert(`${product.idProducts}`)"
             :src="`data:image/*;base64,${product.image}`"
           ></v-img>
           <v-card-title class="font-family-secular-one">
-            {{ product.name.substring(0, 20) }}
+            {{ product.title.substring(0, 20).concat(" ...") }}
           </v-card-title>
           <v-card-text>
-            <v-row align="center" class="mx-0">
+            <v-row align="warning" class="mx-0">
               <v-rating
-                :value="4.5"
+                :value="product.rating"
                 color="amber"
                 dense
                 half-increments
                 readonly
                 size="14"
+                
               ></v-rating>
+              <span v-if="!product.rating">&nbsp;Ninguna valoración</span>
 
-              <div class="grey--text ms-4">4.5</div>
+              <div class="grey--text ms-2">{{product.rating}}</div>
             </v-row>
 
             <div class="my-4 text-subtitle-1 d-flex justify-center my-3">
