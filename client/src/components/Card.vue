@@ -106,7 +106,7 @@ export default {
   mounted() {
     const vue = this;
     axios
-      .get("http://3.144.80.85/api/products")
+      .get("http://18.222.189.0/api/products")
       .then((response) => {
         vue.products = response.data;
       })
