@@ -4,7 +4,7 @@ require('dotenv').config(); // Load .env file
 const path = require("path");
 const app = express();
 // Setting
-app.set("port", process.env.PORT);
+app.set("port", process.env.PORT );
 // Middlewares
 app.use(cors());
 app.use(express.json());
@@ -22,5 +22,5 @@ app.get('*', (req,res) => {
 
 // Starting the server
 app.listen(app.get("port"), () => {
-  console.log("Server on port", app.get("port"));
+  console.log(`http://localhost:${app.get("port")}/`);
 });

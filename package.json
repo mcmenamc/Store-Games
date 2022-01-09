@@ -1,0 +1,30 @@
+{
+  "name": "arturo-store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/src/index.js",
+    "dev": "nodemon server/src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcmenamc/Store-Games.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcmenamc/Store-Games/issues"
+  },
+  "homepage": "https://github.com/mcmenamc/Store-Games#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "mysql": "^2.18.1"
+  }
+}
