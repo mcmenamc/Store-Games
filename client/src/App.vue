@@ -30,7 +30,13 @@ export default {
   components: {
     NavigationDrawer,
     Footer,
-  }
+  },
+  mounted() {
+     var loader = document.getElementById("preloader");
+    window.addEventListener("load", () => {
+      loader.style.display = "none";
+    });
+  },
 
 };
 </script>
