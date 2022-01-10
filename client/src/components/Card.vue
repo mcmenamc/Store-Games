@@ -68,7 +68,7 @@
             {{ product.title.substring(0, 20).concat(" ...") }}
           </v-card-title>
           <v-card-text>
-            <v-row align="warning" class="mx-0">
+            <v-row  class="mx-0">
               <v-rating
                 :value="product.rating"
                 color="amber"
@@ -106,7 +106,7 @@ export default {
   mounted() {
     const vue = this;
     axios
-      .get("http://18.222.189.0/api/products")
+      .get("https://store-games.herokuapp.com/api/products")
       .then((response) => {
         vue.products = response.data;
       })

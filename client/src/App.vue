@@ -36,7 +36,9 @@ export default {
     window.addEventListener("load", () => {
       loader.style.display = "none";
     });
+
   },
+  
 
 };
 </script>
